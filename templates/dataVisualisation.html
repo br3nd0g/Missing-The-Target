@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        {% extends "pageLayout.html" %}
+
+        {% block pageBody %} 
+
+        <script src="../static/js/graphDataVis.js" async defer></script>
+
+        <div class="headerPadding"></div>
+
+        <div id="dataVisIntro">
+            <div id="introBubble">
+                <h1 class="oswaldFont">More Data</h1>
+                <p>This page contains more interactive graphical visualisations of emissions and climate action.</p>
+            </div>
+            <svg id="dataVisSVG" viewBox="0 0 1024 1024" class="icon"  version="1.1" xmlns="http://www.w3.org/2000/svg">
+                <path d="M143.04 839.552c43.584 0 79.104-35.52 79.104-79.104v-448a79.168 79.168 0 0 0-158.08 0l-0.064 448c0 43.584 35.456 79.104 79.04 79.104z m-26.368-527.104a26.368 26.368 0 0 1 52.736 0v448a26.368 26.368 0 0 1-52.736 0v-448z m263.552 527.104c43.584 0 79.04-35.52 79.04-79.104V523.264c0-43.52-35.456-79.04-79.04-79.04s-79.04 35.456-79.04 79.04v237.184c0 43.584 35.456 79.104 79.04 79.104zM353.92 523.264a26.368 26.368 0 0 1 52.736 0v237.184a26.368 26.368 0 0 1-52.736 0V523.264z m500.736 316.288c43.584 0 79.04-35.52 79.04-79.104v-158.08c0-43.584-35.456-79.104-79.04-79.104s-79.04 35.52-79.04 79.104v158.08c0 43.584 35.456 79.104 79.04 79.104z m-26.368-237.184a26.368 26.368 0 0 1 52.736 0v158.08a26.368 26.368 0 0 1-52.736 0v-158.08z m-210.816 237.184c43.584 0 79.04-35.52 79.04-79.104V207.04c0-43.52-35.456-79.04-79.04-79.04s-79.04 35.456-79.04 79.04v553.408c0 43.584 35.456 79.104 79.04 79.104z m-26.368-632.512a26.368 26.368 0 0 1 52.736 0v553.408a26.368 26.368 0 0 1-52.736 0V207.04zM64 892.224h896v52.736H64v-52.736z" fill="#283618" />
+            </svg>
+        </div>
+
+        <div class="section">
+            <p>This graph shows the annual CO₂ emissions of some of the biggest polluters since 1989. Wow! They seem to be going down (a tiny bit). Read on to find out more.</p>
+            <div class="graphContainer">
+                <div id="emissionsDownGraph" class="graph"></div>
+            </div>
+        </div>
+
+        <div class="orangeBGarea orangeBGareaTornOverride multiSection">
+            <div class="graphContainer">
+                <div id="emissionsDownGraphWithChina" class="graph"></div>
+            </div>
+            <p>Why is the USA meeting its climate goals? Why are the biggest polluters somewhat doing better? The answer is carbon outsourcing. The Paris Agreement & countries' own goals hold countries accountable for the emissions in their country alone, and because of this, our leaders and industries found a simple solution - outsourcing high-emission manafacturing and production to companies in other countries, their favourite candidate being China.<br><br>The top graph shows the same countries and time period as the first graph on this page, except now with China included. Can you see what is happening with countries' CO₂ emissions, being outsourced to China, faking their way to meeting their goals. The bottom graph includes these same countries, now detailing the annual CO₂ emissions per capita. It is once again clear.</p>
+            <div class="graphContainer">
+                <div id="emissionsDownGraphWithChinaPERCAPITA" class="graph"></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h1 class="oswaldFont" style="text-shadow: 0 0 4px crimson;"> We are not meeting our climate targets.</h1>
+        </div>
+
+        {% endblock %}
+    </body>
+</html>

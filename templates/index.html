@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        {% extends "pageLayout.html" %}
+
+        {% block pageBody %} 
+
+        <script src="../static/js/graphIndex.js" async defer></script>
+
+        <!-- LANDING VIDEO -->
+
+        <div id="landingVideo">
+            <div id="overlay">
+                <h1 class="oswaldFont"> We are not meeting our climate targets.</h1>
+                <p>Scroll to graphically explore our climate progress, compared to our goals set by governments</p>
+            </div>
+            <video id="backgroundVideo" loop preload="auto" muted autoplay>
+                <source src="../static/media/emissionsFootage.mp4" type="video/mp4">
+                Your browser does not support video sorry :(
+            </video>
+        </div>
+
+        <!-- INTRODUCTION DIV -->
+
+        <div id="introDiv">
+            <p>Our governments and world leaders have made many climate agreements and plans in the recent decade. We are not meeting these goals.<br><br>The graphs on this page are to visualise the world's progress (or lack thereof) towards these goals. Specific country's progress will also be shown. All graphs are explained.</p>
+        </div>
+
+        <!-- MAIN PAGE CONTENT -->
+
+        <div class="orangeBGarea orangeBGareaTornOverride section">
+            <div class="graphContainer">
+                <div id="worldEmissions" class="graph"></div>
+            </div>
+            <p>These are our world's CO₂ emissions since 1750. Notice how it is not decreasing, instead at it's all time highest. (Note: G denotes a billion)</p>
+        </div>
+
+        <div class="section">
+            <p>These are our the top 10 most polluting countries' CO₂ emissions since 1850. Some are barely going down, and most are going up. They are not effectively working towards goals to prevent global climate issues.</p>
+            <div class="graphContainer">
+                <div id="generalEmissionsGraph" class="graph"></div>
+            </div>
+        </div>
+
+        <div class="orangeBGarea clipPathFlipped section">
+            <div class="graphContainer">
+                <div id="parisGraph" class="graph"></div>
+            </div>
+            <p>The Paris Agreement was made on 12 December 2015, at the COP21 conference. 196 parties adopted the agreement, which defined a concrete goal to limit global warming to 1.5°C, and that emissions must decline <i>at least</i> 43% by 2030. This graph details the cumulative CO₂ emissions of the top 10 most polluting countries since the Paris Agreement was made. We are halfway through the period of the Paris Agreement, and we are showing no signs of meeting this goal, instead the opposite.</p>
+        </div>
+
+        <div class="section">
+            <p>Now time for a bit of (false) hope. The US under the Biden administration made climate plans, setting the goal of reducing U.S. emissions 50-52% below 2005 levels in 2030.<br><br>This graph details the annual CO₂ emissions <i>per capita</i> from 2004-2020. As you can see, their emissions are much less than half of what they were in 2005. This must be great! Explore the <a href="{{  url_for('dataVis') }}">'more data'</a> page to learn more.</p>
+            <div class="graphContainer">
+                <div id="usaGraph" class="graph"></div>
+            </div>
+        </div>    
+
+        <script>
+            document.getElementById("backgroundVideo").playbackRate = 0.7;
+        </script>
+        {% endblock %}
+    </body>
+</html>

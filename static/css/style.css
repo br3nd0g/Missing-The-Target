@@ -1,0 +1,502 @@
+/* BASE DECLARATIONS */
+
+:root{
+    --bg1: #606C38;
+    --bubble1: #283618;
+    --highlight: #57554b;
+    --bg2: #DDA15E;
+    --bubble2: #BC6C25;
+    --text2: #232323;
+    --text1: rgb(216, 216, 216);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Playfair Display", serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    color: var(--text1)
+}
+
+.oswaldFont{
+    font-family: "Oswald", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+}
+
+body{
+    background-color: var(--bg1);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+i{
+    font-style: italic;
+    color: inherit;
+}
+
+/* HEADER SYTLING */
+header{
+    background-color: var(--bubble1);
+    height: 100px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    z-index: 5;
+    left: 0;
+    top: 0;
+    clip-path: polygon(0 0, 0 100%, 230px 100%, 250px 20%, calc(100% - 300px) 20%, calc(100% - 280px) 100%, 100% 100%, 100% 0)
+}
+
+header > h1{
+    width: 200px;
+    text-align: center;
+    margin-left: 15px;
+    text-shadow: 0 0 3px var(--text1);
+}
+
+header > nav{
+    width: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-right: 15px;
+}
+
+header > nav > a{
+    text-decoration: none;
+    font-size: 20px;
+    width: 100px;
+    text-align: center;
+    transition: 0.2s;
+}
+
+header > nav > a:hover{
+    transform: rotate(4.25deg) scale(1.2);
+    border-top: 4px double var(--highlight);
+    border-bottom: 4px double var(--highlight);
+}
+
+header > nav > .currentPage{
+    text-shadow: 0 0 6px var(--text1);
+}
+
+.headerPadding{ /*padding for pages to have the header space filled */
+    height: 100px;
+    width: 100%;
+}
+
+/* FOOTER STYLING */
+footer{
+    clip-path: polygon(0 0, 25% 30px, 75% 30px  , 100% 0, 100% 100%, 0 100%);
+    height: 100px;
+    width: 100%;
+    background-color: var(--bubble1);
+    padding-top: 30px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-top: auto;
+}
+
+footer > #creatorInfo{
+    padding: 10px 0 10px 10px;
+    height: calc(100% - 20px);
+    font-size: 13px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+footer > #date{
+    height: calc(100% - 10px);
+    width: 50px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 0 10px 10px 0;
+}
+
+/* MAIN PAGE STYLING */
+
+/* LANDING VIDEO AND TEXT */
+#landingVideo{
+    width: 100%;
+    height: 650px;
+    position: relative;
+    border-bottom: var(--highlight) 6px solid;
+    overflow: hidden;
+}
+
+#landingVideo > #overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: calc(100% - 100px);
+    background-color: rgba(0,0,0,.8);
+    padding-top: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+#landingVideo > #overlay > h1{
+    text-decoration: underline;
+    font-size: 60px;
+    width: 400px;
+    animation: fall-in 1s ease 200ms backwards;
+}
+
+#landingVideo > #overlay > p{
+    font-size: 24px;
+    width: 300px;
+    text-align: end;
+    animation: fall-in 1200ms ease 200ms backwards;
+}
+
+#landingVideo > #backgroundVideo{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    animation: zoom-out 900ms ease 200ms backwards;
+}
+
+/* PAGE CONTENT STYLING */
+
+.orangeBGarea{
+    background-color: var(--bg2);
+    padding: 50px 0;
+    clip-path: polygon(0 0, 100% 50px, 100% calc(100% - 50px), 0 100%);
+    color: var(--text2);
+}
+
+.clipPathFlipped{
+    clip-path: polygon(0 50px, 100% 0, 100% 100%, 0 calc(100% - 50px));
+}
+
+.orangeBGareaTornOverride{
+    clip-path: polygon(0 0, 10% 50px, 20% 0px, 30% 50px, 40% 0px, 50% 50px, 60% 0px, 70% 50px, 80% 0px, 90% 50px, 100% 0px, 100% calc(100% - 50px), 0 100%);
+}
+
+.section, .multiSection{
+    width: 80%;
+    display: flex;
+    align-items: center;
+    padding: 100px 10%;
+    /* height: 500px; */
+}
+
+.section{
+    justify-content: space-around;
+}
+
+.multiSection{
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+
+.section > p, .multiSection > p{
+    max-width: calc(400px - 40px);
+    font-size: 18px;
+    color: inherit;
+    padding: 20px;
+    border-radius: 12px;
+    background-color: var(--bubble1);
+}
+
+.section > p{
+    margin-right: 20px;
+}
+
+.orangeBGarea > p{
+    background-color: var(--bubble2);
+    margin-left: 20px;
+    margin-right: 0px;
+}
+
+.multiSection > p{
+    width: 50%;
+    margin: 30px 20px;
+}
+
+.graphPlaceholder{
+    border: 2px dashed black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+    aspect-ratio: 16 / 9;
+    color: inherit;
+}
+
+.graphPlaceholder > h3{
+    color: inherit;
+}
+
+#introDiv{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 0;
+}
+
+#introDiv > p{
+    font-size: 24px;
+    max-width: 700px;
+    width: calc(80% - 70px);
+    background-color: var(--bubble1);
+    padding: 35px;
+    border-radius: 20px;
+    border: 2px solid var(--highlight)
+}
+
+.graphContainer{
+    height: 300px;
+    aspect-ratio: 16 / 9;
+}
+
+.graph{
+    height: 100%;
+    width: 100%;
+    border-radius: 14px;
+}
+
+/* MAIN PAGE GRAPHS */
+
+
+/* DATAVIS PAGE STYLING */
+
+#dataVisIntro{
+    margin-top: 110px;
+    padding-bottom: 110px;
+    padding-left: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    border-bottom: 6px dashed var(--highlight);
+    animation: border-appear 2s ease backwards;
+}
+
+#introBubble{
+    background-color: var(--bubble1);
+    padding: 14px;
+    padding-left: 20px;
+    border-radius: 16px;
+    animation: fall-in 1s ease 200ms backwards;
+}
+
+#introBubble > h1{
+    font-size: 36px;
+    margin-bottom: 10px;
+    text-decoration: underline 2px;
+}
+
+#introBubble > p{
+    font-size: 20px;
+    max-width: 400px;
+}
+
+#dataVisSVG{
+    height: 175px;
+    animation: fall-in 1200ms ease 200ms backwards;
+}
+
+/* MEDIA QUERIES */
+
+@media only screen and (max-width: 1100px) {
+    header{
+        clip-path: polygon(0 0, 0 100%, 230px 100%, 255px 0 , calc(100% - 305px) 0, calc(100% - 280px) 100%, 100% 100%, 100% 0);
+    }
+
+    .multiSection, .section{
+        flex-direction: column;
+        justify-content: space-evenly;
+    }
+
+    .section > p, .multiSection > p{
+        margin: 30px 0;
+    }
+
+    .multiSection > p{
+        width: auto;
+    }
+
+    .graphPlaceholder{
+        width: 90%;
+        max-width: 450px;
+    }   
+}
+
+@media only screen and (max-width: 900px) {
+    #landingVideo{
+        height: 480px;
+    }
+
+    #landingVideo > #overlay > h1{
+        font-size: 40px;
+        width: 40%;
+    }
+    
+    #landingVideo > #overlay > p{
+        font-size: 16px;
+        width: 35%;
+    }
+}
+
+@media only screen and (max-width: 800px){
+    #dataVisIntro{
+        flex-direction: column;
+        padding-left: 0px;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    header{
+        clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 0);
+    }
+}
+
+@media only screen and (max-width: 590px){
+    .graphContainer{
+        aspect-ratio: 16 / 9;
+        width: 360px;
+    }
+}
+
+@media only screen and (max-width: 540px){
+
+    header{
+        height: 75px;
+    }
+
+    header > h1{
+        font-size: 22px;
+        margin-left: 3%;
+    }
+    
+    header > nav > a{
+        font-size: 14px;
+    }
+
+    header > nav{
+        width: 150px;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        margin-right: 3%;
+    }
+}
+
+
+@media only screen and (max-width: 500px){
+    #landingVideo > #overlay{
+        flex-direction: column;
+    }
+
+    #landingVideo > #overlay > h1{
+        font-size: 32px;
+        width: 80%;
+        text-align: center;
+    }
+    
+    #landingVideo > #overlay > p{
+        width: 80%;
+        text-align: center;
+    }
+
+    #introBubble{
+        width: 100%;
+        border-radius: 0;
+        padding: 28px 0;
+    }
+
+    #introBubble > h1, #introBubble > p{
+        text-align: center;
+    }
+
+    #introBubble > p{
+        font-size: 16px;
+        padding: 0 4px;
+    }
+
+    #dataVisIntro{
+        margin-top: 0;
+        border-top: 2px solid var(--highlight);
+        padding-bottom: 0;
+    }
+
+    .headerPadding{
+        height: 75px;
+    }
+
+    #dataVisSVG{
+        height: 125px;
+        margin: 30px 0;
+    }
+}
+
+@media only screen and (max-width: 460px){
+    #introDiv > p{
+        font-size: 16px;
+        text-align: center;
+    }
+
+    .section > p, .multiSection > p{
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    .section{
+        height: 600px;
+    }
+
+    .multiSection{
+        height: calc(800px - 100px);
+        padding: 50px 10%;
+    }
+}
+
+/* ANIMATIONS */
+
+@keyframes fall-in {
+    from {
+     opacity: 0;
+     transform: translateY(-100px);
+    }
+    to {
+     opacity: 1;
+     transform: translate(0px);
+    }
+}
+
+@keyframes zoom-out {
+    from{
+        transform: scale(1.75);
+    }
+    to{
+        transform: scale(1);
+    }
+}
+
+@keyframes border-appear{
+    from{
+        border-bottom: 0 dashed var(--highlight);
+    }
+    to{
+        border-bottom: 6px dashed var(--highlight);
+    }
+}
