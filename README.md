@@ -1,4 +1,6 @@
-# Brendan Corcoran - DE Individual Website
+# Missing The Target
+
+A website made for my bachelor's degree in my firt year about climate targets not being met
 
 ### HTML & CSS Notes
 No templates or LLM-Written code has been used in this website.
